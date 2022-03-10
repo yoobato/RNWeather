@@ -1,6 +1,7 @@
+import * as Location from 'expo-location';
+import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, Dimensions, ScrollView, StyleSheet, Text, View } from 'react-native';
-import * as Location from 'expo-location';
 import { Fontisto } from '@expo/vector-icons';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
@@ -47,9 +48,12 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <StatusBar style='light' />
+
       <View style={styles.city}>
         <Text style={styles.cityName}>{city}</Text>
       </View>
+
       {/* scrollView는 style대신에 contentContainerStyle을 쓴다. */}
       {/* scrollView에서는 flex를 써줄 필요가 없다. */}
       <ScrollView 
@@ -89,32 +93,41 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "tomato"
+    backgroundColor: 'tomato'
   },
   city: {
     flex: 1.2,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   cityName: {
     fontSize: 68,
-    fontWeight: "500",
+    fontWeight: '500',
+    color: 'white',
   },
   weather: {
   },
   day: {
     width: SCREEN_WIDTH,
-    alignItems: "center",
+    alignItems: 'flex-start',
+    paddingHorizontal: 20,
   },
   temp: {
     marginTop: 50,
-    fontSize: 178,
+    fontSize: 100,
+    fontWeight: '600',
+    color: 'white',
   },
   description: {
-    marginTop: -30,
-    fontSize: 60,
+    marginTop: -10,
+    fontSize: 30,
+    color: 'white',
+    fontWeight: '500',
   },
   tinyText: {
-    fontSize: 30,
+    marginTop: -5,
+    fontSize: 25,
+    color: 'white',
+    fontWeight: '500',
   },
 });
