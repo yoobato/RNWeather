@@ -54,6 +54,8 @@ export default function App() {
         <Text style={styles.cityName}>{city}</Text>
       </View>
 
+      {/* TODO: ok가 false(location 권한 없음)면 우는 얼굴(?) 보여주자 */}
+
       {/* scrollView는 style대신에 contentContainerStyle을 쓴다. */}
       {/* scrollView에서는 flex를 써줄 필요가 없다. */}
       <ScrollView 
@@ -63,6 +65,7 @@ export default function App() {
         showsHorizontalScrollIndicator={false}
       >
         {days.length === 0 ? (
+          // 아래처럼 쓰면 기존 style에 새로운 style을 추가할 수 있다.
           <View style={{ ...styles.day, alignItems: 'center' }}>
             <ActivityIndicator 
               color='white' 
